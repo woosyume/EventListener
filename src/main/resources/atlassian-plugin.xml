@@ -14,11 +14,17 @@
     <web-resource key="new-listener-plugin-resources" name="new-listener-plugin Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
         
-        <resource type="download" name="new-listener-plugin.css" location="/css/new-listener-plugin.css"/>
-        <resource type="download" name="new-listener-plugin.js" location="/js/new-listener-plugin.js"/>
+        <resource type="download" name="event-listener-plugin.css" location="/css/event-listener-plugin.css"/>
+        <resource type="download" name="event-listener-plugin.js" location="/js/event-listener-plugin.js"/>
         <resource type="download" name="images/" location="/images"/>
 
-        <context>new-listener-plugin</context>
+        <context>event-listener-plugin</context>
     </web-resource>
-    
+
+    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
+
+    <component-import key="eventPublisher" interface="com.atlassian.event.api.EventPublisher"/>
+    <component key="eventListener" class="net.atlassian.woosyume.plugins.IssueCreatedResolvedListener">
+        <description>Class that processes the incoming JIRA issue events.</description>
+    </component>
 </atlassian-plugin>

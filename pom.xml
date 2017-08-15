@@ -14,8 +14,8 @@
         <url>https://woohyeok.atlassian.net/wiki</url>
     </organization>
 
-    <name>new-listener-plugin</name>
-    <description>This is the net.atlassian.woosyume.plugins:new-listener-plugin plugin for Atlassian JIRA.</description>
+    <name>event-listener-plugin</name>
+    <description>This is the net.atlassian.woosyume.plugins:event-listener-plugin plugin for Atlassian JIRA.</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
@@ -92,6 +92,13 @@
             <scope>test</scope>
         </dependency>
         -->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>2.5.6.SEC02</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -116,27 +123,27 @@
                     -->
                     <enableQuickReload>true</enableQuickReload>
                     <enableFastdev>false</enableFastdev>
-
+                    <log4jProperties>src/aps/log4j.properties</log4jProperties>
                     <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
-                    <instructions>
-                        <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
+                    <!--<instructions>-->
+                        <!--<Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>-->
 
-                        <!-- Add package to export here -->
-                        <Export-Package>
-                            net.atlassian.woosyume.plugins.api,
-                        </Export-Package>
+                        <!--&lt;!&ndash; Add package to export here &ndash;&gt;-->
+                        <!--<Export-Package>-->
+                            <!--net.atlassian.woosyume.plugins.api,-->
+                        <!--</Export-Package>-->
 
-                        <!-- Add package import here -->
-                        <Import-Package>
-                            org.springframework.osgi.*;resolution:="optional",
-                            org.eclipse.gemini.blueprint.*;resolution:="optional",
-                            *
-                        </Import-Package>
+                        <!--&lt;!&ndash; Add package import here &ndash;&gt;-->
+                        <!--<Import-Package>-->
+                            <!--org.springframework.osgi.*;resolution:="optional",-->
+                            <!--org.eclipse.gemini.blueprint.*;resolution:="optional",-->
+                            <!--*-->
+                        <!--</Import-Package>-->
 
-                        <!-- Ensure plugin is spring powered -->
-                        <Spring-Context>*</Spring-Context>
-                    </instructions>
+                        <!--&lt;!&ndash; Ensure plugin is spring powered &ndash;&gt;-->
+                        <!--<Spring-Context>*</Spring-Context>-->
+                    <!--</instructions>-->
                 </configuration>
             </plugin>
 
